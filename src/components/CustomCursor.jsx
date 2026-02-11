@@ -1,13 +1,18 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor({ isVideoHovered, isMuted }) {
   const cursorRef = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
   const cursor = useRef({ x: 0, y: 0 });
 
+  // 1. NUEVO: Estado para saber si el usuario ya movió el mouse
+  const [hasMoved, setHasMoved] = useState(false);
+
   useEffect(() => {
     const onMouseMove = (e) => {
+      // 2. Al mover el mouse, activamos la bandera (React es inteligente y solo renderiza si cambia)
+      setHasMoved(true);
       mouse.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener("mousemove", onMouseMove);
@@ -24,11 +29,14 @@ export default function CustomCursor({ isVideoHovered, isMuted }) {
     return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
+  // 3. LÓGICA FINAL: Solo mostrar si está sobre el video Y el mouse ya se movió
+  const shouldShow = isVideoHovered && hasMoved;
+
   return (
     <div
       id="custom-cursor"
       ref={cursorRef}
-      style={{ opacity: isVideoHovered ? 1 : 0 }}
+      style={{ opacity: shouldShow ? 1 : 0 }} // Usamos la nueva variable combinada
     >
       <div id="icon-mute" style={{ display: isMuted ? "block" : "none" }}>
         🔇
