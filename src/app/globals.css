@@ -264,21 +264,21 @@ body.loaded .site-wrapper {
 /* --- LÓGICA DE ALTURAS UNIFICADAS (X) --- */
 .marco-imagen {
   width: 100%;
-  aspect-ratio: 21 / 9; /* Esta proporción define la altura X */
+  /* Eliminamos aspect-ratio y usamos una altura fija basada en el ancho de pantalla */
+  height: 22vw;
   overflow: hidden;
   position: relative;
   background-color: #f9f9f9;
 }
-
-/* Al tener el mismo aspect-ratio, la altura será idéntica en toda la fila */
+/* Forzamos a que los proyectos grandes respeten la misma altura exacta */
 .proyecto-item.grande .marco-imagen {
-  aspect-ratio: 21 / 9;
+  height: 22vw;
+  aspect-ratio: auto; /* Cancelamos el ratio anterior */
 }
-
 .marco-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Esto es vital para que la imagen no se deforme al estirarse */
   display: block;
   transition: transform 0.6s ease;
 }
