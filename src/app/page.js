@@ -8,15 +8,15 @@ import ProjectItem from "../components/ProjectItem";
 
 const projects = [
   {
-    title: "SKECHERS",
-    subtitle: "Campaña OOM<br>2025",
-    img: "https://images.unsplash.com/photo-1556906781-9a412961d289?q=80&w=1600&auto=format&fit=crop",
+    title: "STARBUCKS",
+    subtitle: "Holidays drinks<br>2025",
+    img: "/starbucks.webp",
     large: true,
   },
   {
-    title: "COOPEUCH",
-    subtitle: "Memoria Anual<br>2025",
-    img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop",
+    title: "BANCO CENTRAL",
+    subtitle: "Lanzamiento nueva moneda<br>2025",
+    img: "/bancocentral.webp",
     large: true,
   },
   {
