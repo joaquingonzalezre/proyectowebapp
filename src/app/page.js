@@ -162,7 +162,7 @@ export default function Home() {
 
         <footer className="footer-final">
           <div className="contenido-footer">
-            <p>&copy; 2026 JUWEARE.</p>
+            <p>&copy; © 2026 JUWEARE. TODOS LOS DERECHOS RESERVADOS.</p>
           </div>
         </footer>
       </div>
