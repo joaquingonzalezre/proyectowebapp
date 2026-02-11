@@ -16,7 +16,7 @@ const projects = [
   {
     title: "BANCO CENTRAL",
     subtitle: "Lanzamiento nueva moneda<br>2025",
-    img: "/bancocentral.webp",
+    img: "/bancocentral2.png",
     large: true,
   },
   {
