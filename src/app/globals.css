@@ -264,7 +264,7 @@ body.loaded .site-wrapper {
 /* --- LÓGICA DE ALTURAS UNIFICADAS (X) --- */
 .marco-imagen {
   width: 100%;
-  aspect-ratio: 16 / 10; /* Esta proporción define la altura X */
+  aspect-ratio: 21 / 9; /* Esta proporción define la altura X */
   overflow: hidden;
   position: relative;
   background-color: #f9f9f9;
@@ -272,7 +272,7 @@ body.loaded .site-wrapper {
 
 /* Al tener el mismo aspect-ratio, la altura será idéntica en toda la fila */
 .proyecto-item.grande .marco-imagen {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 21 / 9;
 }
 
 .marco-imagen img {
