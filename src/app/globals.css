@@ -165,7 +165,7 @@ body.loaded .site-wrapper {
   position: relative; /* Esto es necesario para que funcione el top */
 
   /* AGREGA ESTA LÍNEA: */
-  top: -30vh; /* Sube el logo un 30% de la altura de la pantalla */
+  top: -50vh; /* Sube el logo un 30% de la altura de la pantalla */
 }
 .fade-bottom {
   position: absolute;
