@@ -139,12 +139,35 @@ export default function Home() {
           <div className="fade-bottom"></div>
         </section>
 
+        {/* === SECCIÓN NEGRA ACTUALIZADA (CENTRADA) === */}
         <section className="seccion-negra">
-          <div className="contenedor-derecha">
-            <h2>CALIDAD TU PERRO</h2>
-            <p>SU USTE SABE LO WENO, YA TU SAE.</p>
+          <div className="contenedor-centro">
+            <h2>Creatividad colectiva y producción a medida</h2>
+
+            <p className="subtitulo-ju">
+              En <strong>JU</strong> convertimos ideas en experiencias visuales
+              que funcionan.
+            </p>
+
+            {/* Iconos (Simulados con texto/emojis por ahora) */}
+            <div className="iconos-container">
+              <span>📄</span> <span>📷</span> <span>🧠</span>
+            </div>
+
+            <h3>Diseñamos y producimos contenido con equipos a medida</h3>
+
+            <p className="texto-descripcion">
+              Sin moldes, límites ni manuales, construyendo cada proyecto en
+              conjunto.
+            </p>
+
+            <div className="firma-final">
+              <p>‘Cause we are JU, and ju we are.</p>
+              <p>Creating together is who we are.</p>
+            </div>
           </div>
         </section>
+        {/* === FIN SECCIÓN NEGRA === */}
 
         <section className="seccion-proyectos">
           <div className="grid-proyectos">
@@ -162,7 +185,7 @@ export default function Home() {
 
         <footer className="footer-final">
           <div className="contenido-footer">
-            <p>&copy; © 2026 JUWEARE. TODOS LOS DERECHOS RESERVADOS.</p>
+            <p>&copy; 2026 JUWEARE. TODOS LOS DERECHOS RESERVADOS..</p>
           </div>
         </footer>
       </div>
