@@ -172,11 +172,16 @@ body.loaded .site-wrapper {
 /* --- SECCIÓN NEGRA (ESTRUCTURA CENTRADA) --- */
 .seccion-negra {
   background-color: black;
-  min-height: 100vh;
+  min-height: 130vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 100px 20px;
+  align-items: flex-start;
+  padding-top: 35vh;
+
+  padding-bottom: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+
   text-align: center;
 }
 
