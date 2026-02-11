@@ -61,18 +61,30 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+
+  // 1. NUEVO: Estado para controlar la visibilidad del botón
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   const videoRef = useRef(null);
   const lenisRef = useRef(null);
 
   useEffect(() => {
     if (loading) return;
+
     const lenis = new Lenis({ duration: 1.2, lerp: 0.05 });
     lenisRef.current = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // 2. NUEVO: Detectar cuando el usuario baja más de 500px
+    lenis.on("scroll", (e) => {
+      setShowScrollTop(e.scroll > 500);
+    });
+
     return () => lenis.destroy();
   }, [loading]);
 
@@ -155,10 +167,12 @@ export default function Home() {
         </footer>
       </div>
 
+      {/* 3. LÓGICA CORREGIDA: Usamos el estado showScrollTop */}
       <button
-        className="btn-top show"
+        className={`btn-top ${showScrollTop ? "show" : ""}`}
         onClick={scrollToTop}
-        style={{ opacity: loading ? 0 : 1 }}
+        // Ocultamos totalmente si está cargando para evitar parpadeos
+        style={{ display: loading ? "none" : "flex" }}
       >
         <span className="arrow-up"></span>
       </button>
