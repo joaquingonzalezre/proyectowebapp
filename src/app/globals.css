@@ -258,17 +258,20 @@ body.loaded .site-wrapper {
   z-index: 20;
   margin-top: -1px;
 }
+
 .header-proyectos {
   background-color: black;
   width: 100%;
 
   /* Altura y espacios */
-  padding-top: 100px; /* Espacio negro extra arriba */
-  padding-bottom: 80px; /* Espacio entre título y fotos */
-  padding-left: 0px; /* Alineado a la izquierda, en 0 esta centrado */
+  padding-top: 100px;
+  padding-bottom: 80px;
+  padding-left: 0px; /* Perfecto, déjalo en 0 */
 
+  /* --- AQUÍ ESTÁ EL TRUCO --- */
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end; /* Alinea verticalmente al fondo */
+  justify-content: center; /* <--- ESTA ES LA LÍNEA QUE TE FALTA para ke este centada */
 }
 
 .header-proyectos h2 {
