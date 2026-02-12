@@ -1,11 +1,3 @@
-Aquí tienes el archivo src/app/page.js completo y actualizado.
-
-He integrado la nueva Sección de Servicios (Film, Foto, Contenido Digital) justo en medio, usando el componente optimizado <Image /> de Next.js para que cargue rápido y se vea profesional.
-
-Solo copia y pega todo esto en tu archivo:
-
-JavaScript
-
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
@@ -69,26 +61,26 @@ const projects = [
 
 // --- NUEVOS DATOS: SERVICIOS (Film, Foto, Digital) ---
 const servicios = [
-  { 
+  {
     id: "film",
-    titulo: "Film", 
+    titulo: "Film",
     // Recuerda subir una foto llamada 'film.jpg' a tu carpeta public
-    img: "/film.jpg", 
-    link: "/film" 
+    img: "/film.jpg",
+    link: "/film",
   },
-  { 
+  {
     id: "foto",
-    titulo: "Foto", 
+    titulo: "Foto",
     // Recuerda subir una foto llamada 'foto.jpg' a tu carpeta public
-    img: "/foto.jpg", 
-    link: "/foto" 
+    img: "/foto.jpg",
+    link: "/foto",
   },
-  { 
+  {
     id: "digital",
-    titulo: "Contenido Digital", 
+    titulo: "Contenido Digital",
     // Recuerda subir una foto llamada 'digital.jpg' a tu carpeta public
-    img: "/digital.jpg", 
-    link: "/digital" 
+    img: "/digital.jpg",
+    link: "/digital",
   },
 ];
 
@@ -170,7 +162,7 @@ export default function Home() {
           >
             <source src="/U.mp4" type="video/mp4" />
           </video>
-          
+
           {/* Escudo invisible para bloquear botones de Opera/Browsers */}
           <div className="video-escudo"></div>
 
@@ -219,12 +211,15 @@ export default function Home() {
         <section className="servicios-container">
           <div className="servicios-grid">
             {servicios.map((servicio) => (
-              <Link href={servicio.link} key={servicio.id} className="servicio-item">
-                
+              <Link
+                href={servicio.link}
+                key={servicio.id}
+                className="servicio-item"
+              >
                 {/* Contenedor de Imagen Optimizado */}
                 <div className="servicio-img-wrapper">
-                  <Image 
-                    src={servicio.img} 
+                  <Image
+                    src={servicio.img}
                     alt={servicio.titulo}
                     fill // Llena el contenedor padre
                     sizes="(max-width: 768px) 100vw, 33vw" // Optimización de carga según pantalla
@@ -238,7 +233,6 @@ export default function Home() {
                   <h3>{servicio.titulo}</h3>
                   <span className="saber-mas">SABER MÁS &rarr;</span>
                 </div>
-                
               </Link>
             ))}
           </div>
