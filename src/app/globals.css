@@ -513,3 +513,84 @@ body.loaded .site-wrapper {
     aspect-ratio: 3 / 2; /* Un poco más cuadrado en móviles para que se vea mejor */
   }
 }
+/* ========================================= */
+/* --- VERSIÓN 2: SERVICIOS FULL WIDTH --- */
+/* ========================================= */
+
+.servicios-full-container {
+  background-color: black;
+  width: 100%;
+  padding: 0; /* Sin padding para que toque los bordes */
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 15;
+}
+
+.servicios-full-grid {
+  display: grid;
+  /* 3 columnas exactas que se reparten el 100% de la pantalla */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; /* CERO espacio entre fotos, estilo pared de ladrillos */
+  width: 100%;
+  margin: 0;
+}
+
+.servicio-item-full {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wrapper de la imagen: Recto y sin bordes */
+.servicio-img-full-wrapper {
+  width: 100%;
+  position: relative;
+  /* Aspect ratio panorámico, o puedes usar 'height: 30vw' si quieres altura fija */
+  aspect-ratio: 16 / 9;
+  background-color: #1a1a1a;
+  /* IMPORTANTE: Sin border-radius para que se vea como en Proyectos */
+  border-radius: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Efecto hover: Un poco de brillo al pasar el mouse */
+.servicio-item-full:hover .servicio-img-full-wrapper {
+  opacity: 0.9;
+}
+
+/* Información de texto (Abajo de la foto) */
+.servicio-info-full {
+  padding: 20px;
+  background-color: black; /* Fondo negro para el texto */
+  border-right: 1px solid #1a1a1a; /* Opcional: una línea sutil separadora */
+}
+
+.servicio-info-full h3 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* Reutilizamos tu clase saber-mas, pero si necesitas ajustes específicos para esta sección: */
+.servicio-info-full .saber-mas {
+  font-size: 0.75rem;
+  color: #a855f7; /* Morado */
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 768px) {
+  .servicios-full-grid {
+    grid-template-columns: 1fr; /* En celular se ponen una debajo de otra */
+  }
+  .servicio-info-full {
+    border-right: none;
+    border-bottom: 1px solid #1a1a1a;
+  }
+}
