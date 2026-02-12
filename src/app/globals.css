@@ -95,23 +95,63 @@ body.loaded .site-wrapper {
 }
 
 /* --- CURSOR (Acompañante) --- */
+/* --- CURSOR (Acompañante) --- */
 #custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 60px;
-  height: 60px;
-  background-color: white;
+  width: 20px; /* Tamaño pequeño por defecto (puntito) */
+  height: 20px;
+  background-color: white; /* Círculo blanco normal */
   border-radius: 50%;
+  pointer-events: none; /* CRUCIAL: Para que el click pase a través del icono */
+  z-index: 999999;
+  mix-blend-mode: difference; /* Efecto de inversión de color normal */
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.1s linear;
+
+  /* Centramos el contenido por si acaso */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  will-change: transform;
-  mix-blend-mode: difference;
+
+  /* Ajuste para que el cursor esté centrado en la punta del mouse */
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+/* --- ESTADO: SOBRE EL VIDEO (VIDEO MODE) --- */
+#custom-cursor.video-mode {
+  width: 60px; /* Crece para alojar el icono */
+  height: 60px;
+  background-color: transparent; /* El fondo blanco desaparece */
+  mix-blend-mode: normal; /* Quitamos el efecto de inversión para ver tus colores reales */
+  margin-top: -30px; /* Re-centramos porque creció */
+  margin-left: -30px;
+}
+
+.cursor-icon-wrapper {
+  animation: fadeIn 0.3s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación suave al aparecer el icono */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 #icon-mute,
 #icon-on {
