@@ -135,6 +135,7 @@ export default function Home() {
           >
             <source src="/U.mp4" type="video/mp4" />
           </video>
+          <div className="video-escudo"></div>
           <div className="content">
             <Image
               src="/juweare-logo.png"

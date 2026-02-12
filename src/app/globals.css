@@ -185,7 +185,14 @@ body.loaded .site-wrapper {
 
   text-align: center;
 }
-
+.video-escudo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Mayor que el video (1), pero menor que el texto */
+}
 .contenedor-centro {
   max-width: 900px;
   display: flex;
