@@ -72,14 +72,14 @@ const servicios = [
     id: "foto",
     titulo: "Foto",
     // Recuerda subir una foto llamada 'foto.jpg' a tu carpeta public
-    img: "/foto.jpg",
+    img: "/fotoo.jpg",
     link: "/foto",
   },
   {
     id: "digital",
     titulo: "Contenido Digital",
     // Recuerda subir una foto llamada 'digital.jpg' a tu carpeta public
-    img: "/digital.jpg",
+    img: "/digitall.jpg",
     link: "/digital",
   },
 ];
