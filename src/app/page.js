@@ -148,7 +148,6 @@ export default function Home() {
           id="video-section"
           onMouseEnter={() => setIsVideoHovered(true)}
           onMouseLeave={() => setIsVideoHovered(false)}
-          onClick={toggleMute}
         >
           <video
             ref={videoRef}
@@ -165,6 +164,29 @@ export default function Home() {
 
           {/* Escudo invisible para bloquear botones de Opera/Browsers */}
           <div className="video-escudo"></div>
+          {/* --- NUEVO: BOTÓN DE MUTE/UNMUTE CON TUS ICONOS WEBP --- */}
+          {/* ============================================================ */}
+          <button className="btn-sonido-hero" onClick={toggleMute}>
+            {/* Usamos un operador ternario: ¿Está muteado? Muestra 'mute.webp'. ¿No? Muestra 'unmute.webp' */}
+            {isMuted ? (
+              <Image
+                src="/mute.webp" /* Asegúrate de que este nombre coincida con tu archivo */
+                alt="Activar sonido"
+                width={
+                  30
+                } /* Tamaño inicial, luego lo ajustamos con CSS si hace falta */
+                height={30}
+              />
+            ) : (
+              <Image
+                src="/unmute.webp" /* Asegúrate de que este nombre coincida con tu archivo */
+                alt="Desactivar sonido"
+                width={30}
+                height={30}
+              />
+            )}
+          </button>
+          {/* ============================================================ */}
 
           <div className="content">
             <Image
