@@ -263,9 +263,9 @@ body.loaded .site-wrapper {
   width: 100%;
 
   /* Altura y espacios */
-  padding-top: 100px; /* Espacio negro extra arriba */
-  padding-bottom: 40px; /* Espacio entre título y fotos */
-  padding-left: 20px; /* Alineado a la izquierda */
+  padding-top: 200px; /* Espacio negro extra arriba */
+  padding-bottom: 80px; /* Espacio entre título y fotos */
+  padding-left: 0px; /* Alineado a la izquierda */
 
   display: flex;
   align-items: flex-end;
