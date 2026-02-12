@@ -206,7 +206,7 @@ body.loaded .site-wrapper {
 /* Subtítulos (Gris y tamaño medio) */
 .subtitulo-ju {
   font-size: 1.1rem; /* Aprox 17-18px */
-  color: #666; /* Gris oscuro, no tan claro */
+  color: #d4d4d4; /* Gris oscuro, no tan claro */
   font-weight: 400;
   line-height: 1.5;
   max-width: 650px; /* Para que no se estire demasiado */
@@ -235,7 +235,7 @@ body.loaded .site-wrapper {
 
 .firma-final p {
   font-size: 0.9rem;
-  color: #555;
+  color: #d4d4d4;
   line-height: 1.5;
   /* Asumimos que la fuente original es una sans-serif limpia */
   font-style: normal;
