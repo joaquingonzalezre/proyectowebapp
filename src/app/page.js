@@ -129,6 +129,8 @@ export default function Home() {
             muted
             playsInline
             disablePictureInPicture
+            disableRemotePlayback // <--- NUEVO: Bloquea transmisión externa/pop-out
+            controls={false}
             className="video-bg"
           >
             <source src="/U.mp4" type="video/mp4" />
