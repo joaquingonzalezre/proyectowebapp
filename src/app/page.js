@@ -18,7 +18,7 @@ const projects = [
   {
     title: "BANCO CENTRAL",
     subtitle: "Lanzamiento nueva moneda<br>2025",
-    img: "/bancocentral.webp",
+    img: "/bancocentral.WEBP",
     large: true,
   },
   {
@@ -79,7 +79,7 @@ const servicios = [
     id: "digital",
     titulo: "Contenido Digital",
     // Recuerda subir una foto llamada 'digital.jpg' a tu carpeta public
-    img: "/digitalservicio.webp",
+    img: "/digitalservicio.WEBP",
     link: "/digital",
   },
 ];
