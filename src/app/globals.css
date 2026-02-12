@@ -410,3 +410,80 @@ body.loaded .site-wrapper {
   transform: rotate(-45deg);
   margin-top: 5px;
 }
+/* ========================================= */
+/* --- NUEVA SECCIÓN: SERVICIOS (3 COLS) --- */
+/* ========================================= */
+
+.servicios-container {
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 0 20px 100px 20px; /* Padding ajustado para dar aire abajo */
+  position: relative;
+  z-index: 15; /* Entre la sección negra y los proyectos */
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 Columnas iguales */
+  gap: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.servicio-item {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.servicio-item:hover {
+  transform: translateY(-8px); /* Efecto flotante al pasar el mouse */
+}
+
+/* IMPORTANTE: Wrapper necesario para que 'fill' de Next.js funcione */
+.servicio-img-wrapper {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9; /* Formato rectangular panorámico */
+  border-radius: 12px; /* Bordes redondeados modernos */
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #1a1a1a; /* Fondo gris mientras carga la foto */
+}
+
+.servicio-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: capitalize; /* O 'uppercase' si prefieres mayúsculas */
+  letter-spacing: 0.5px;
+}
+
+.saber-mas {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.servicio-item:hover .saber-mas {
+  color: #a855f7; /* Color morado suave al hacer hover (puedes cambiarlo a blanco) */
+}
+
+/* --- RESPONSIVE ESPECÍFICO PARA ESTA SECCIÓN --- */
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr; /* 1 sola columna en celular */
+    gap: 40px;
+  }
+
+  .servicio-img-wrapper {
+    aspect-ratio: 3 / 2; /* Un poco más cuadrado en móviles para que se vea mejor */
+  }
+}

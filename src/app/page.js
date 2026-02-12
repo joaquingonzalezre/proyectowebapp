@@ -1,11 +1,21 @@
+Aquí tienes el archivo src/app/page.js completo y actualizado.
+
+He integrado la nueva Sección de Servicios (Film, Foto, Contenido Digital) justo en medio, usando el componente optimizado <Image /> de Next.js para que cargue rápido y se vea profesional.
+
+Solo copia y pega todo esto en tu archivo:
+
+JavaScript
+
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import Image from "next/image";
+import Link from "next/link"; // Importante para la navegación interna
 import Preloader from "../components/Preloader";
 import CustomCursor from "../components/CustomCursor";
 import ProjectItem from "../components/ProjectItem";
 
+// --- DATOS DE PROYECTOS (Tu lista existente) ---
 const projects = [
   {
     title: "STARBUCKS",
@@ -57,12 +67,35 @@ const projects = [
   },
 ];
 
+// --- NUEVOS DATOS: SERVICIOS (Film, Foto, Digital) ---
+const servicios = [
+  { 
+    id: "film",
+    titulo: "Film", 
+    // Recuerda subir una foto llamada 'film.jpg' a tu carpeta public
+    img: "/film.jpg", 
+    link: "/film" 
+  },
+  { 
+    id: "foto",
+    titulo: "Foto", 
+    // Recuerda subir una foto llamada 'foto.jpg' a tu carpeta public
+    img: "/foto.jpg", 
+    link: "/foto" 
+  },
+  { 
+    id: "digital",
+    titulo: "Contenido Digital", 
+    // Recuerda subir una foto llamada 'digital.jpg' a tu carpeta public
+    img: "/digital.jpg", 
+    link: "/digital" 
+  },
+];
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-
-  // 1. NUEVO: Estado para controlar la visibilidad del botón
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const videoRef = useRef(null);
@@ -71,6 +104,7 @@ export default function Home() {
   useEffect(() => {
     if (loading) return;
 
+    // Inicializar Smooth Scroll (Lenis)
     const lenis = new Lenis({ duration: 1.2, lerp: 0.05 });
     lenisRef.current = lenis;
 
@@ -80,7 +114,7 @@ export default function Home() {
     }
     requestAnimationFrame(raf);
 
-    // 2. NUEVO: Detectar cuando el usuario baja más de 500px
+    // Detectar scroll para mostrar botón "Volver arriba"
     lenis.on("scroll", (e) => {
       setShowScrollTop(e.scroll > 500);
     });
@@ -116,6 +150,7 @@ export default function Home() {
           transition: "clip-path 1.8s cubic-bezier(0.87, 0, 0.13, 1)",
         }}
       >
+        {/* === HERO SECTION (VIDEO) === */}
         <section
           className="hero-container"
           id="video-section"
@@ -129,13 +164,16 @@ export default function Home() {
             muted
             playsInline
             disablePictureInPicture
-            disableRemotePlayback // <--- NUEVO: Bloquea transmisión externa/pop-out
+            disableRemotePlayback
             controls={false}
             className="video-bg"
           >
             <source src="/U.mp4" type="video/mp4" />
           </video>
+          
+          {/* Escudo invisible para bloquear botones de Opera/Browsers */}
           <div className="video-escudo"></div>
+
           <div className="content">
             <Image
               src="/juweare-logo.png"
@@ -149,7 +187,7 @@ export default function Home() {
           <div className="fade-bottom"></div>
         </section>
 
-        {/* === SECCIÓN NEGRA ACTUALIZADA (CENTRADA) === */}
+        {/* === SECCIÓN NEGRA (TEXTO) === */}
         <section className="seccion-negra">
           <div className="contenedor-centro">
             <h2>Creatividad colectiva y producción a medida</h2>
@@ -159,7 +197,6 @@ export default function Home() {
               que funcionan.
             </p>
 
-            {/* Iconos (Simulados con texto/emojis por ahora) */}
             <div className="iconos-container">
               <span>📄</span> <span>📷</span> <span>🧠</span>
             </div>
@@ -177,8 +214,37 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* === FIN SECCIÓN NEGRA === */}
 
+        {/* === NUEVA SECCIÓN DE SERVICIOS (FILM / FOTO / DIGITAL) === */}
+        <section className="servicios-container">
+          <div className="servicios-grid">
+            {servicios.map((servicio) => (
+              <Link href={servicio.link} key={servicio.id} className="servicio-item">
+                
+                {/* Contenedor de Imagen Optimizado */}
+                <div className="servicio-img-wrapper">
+                  <Image 
+                    src={servicio.img} 
+                    alt={servicio.titulo}
+                    fill // Llena el contenedor padre
+                    sizes="(max-width: 768px) 100vw, 33vw" // Optimización de carga según pantalla
+                    style={{ objectFit: "cover" }} // Recorte perfecto
+                    className="servicio-next-image"
+                  />
+                </div>
+
+                {/* Texto y Enlace */}
+                <div className="servicio-info">
+                  <h3>{servicio.titulo}</h3>
+                  <span className="saber-mas">SABER MÁS &rarr;</span>
+                </div>
+                
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* === GALERÍA DE PROYECTOS === */}
         <section className="seccion-proyectos">
           <div className="grid-proyectos">
             {projects.map((proj, i) => (
@@ -193,6 +259,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* === FOOTER === */}
         <footer className="footer-final">
           <div className="contenido-footer">
             <p>&copy; 2026 JUWEARE. TODOS LOS DERECHOS RESERVADOS.</p>
@@ -200,11 +267,10 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* 3. LÓGICA CORREGIDA: Usamos el estado showScrollTop */}
+      {/* === BOTÓN VOLVER ARRIBA === */}
       <button
         className={`btn-top ${showScrollTop ? "show" : ""}`}
         onClick={scrollToTop}
-        // Ocultamos totalmente si está cargando para evitar parpadeos
         style={{ display: loading ? "none" : "flex" }}
       >
         <span className="arrow-up"></span>
