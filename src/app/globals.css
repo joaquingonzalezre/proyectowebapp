@@ -256,6 +256,29 @@ body.loaded .site-wrapper {
   padding-bottom: 0;
   position: relative;
   z-index: 20;
+  margin-top: -1px;
+}
+.header-proyectos {
+  background-color: black;
+  width: 100%;
+
+  /* Altura y espacios */
+  padding-top: 100px; /* Espacio negro extra arriba */
+  padding-bottom: 40px; /* Espacio entre título y fotos */
+  padding-left: 20px; /* Alineado a la izquierda */
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.header-proyectos h2 {
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 1;
 }
 .grid-proyectos {
   display: grid;

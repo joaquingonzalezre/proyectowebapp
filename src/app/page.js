@@ -240,6 +240,9 @@ export default function Home() {
 
         {/* === GALERÍA DE PROYECTOS === */}
         <section className="seccion-proyectos">
+          <div className="header-proyectos">
+            <h2>PROYECTOS DESTACADOS</h2>
+          </div>
           <div className="grid-proyectos">
             {projects.map((proj, i) => (
               <ProjectItem
