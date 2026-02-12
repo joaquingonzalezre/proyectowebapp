@@ -210,8 +210,8 @@ export default function Home() {
 
               {/* Icono 2: Cámara */}
               <svg
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#a855f7"
@@ -225,8 +225,8 @@ export default function Home() {
 
               {/* Icono 3: Cerebro */}
               <svg
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#a855f7"
