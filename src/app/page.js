@@ -209,28 +209,175 @@ export default function Home() {
           </div>
           <div className="fade-bottom"></div>
         </section>
-
-        {/* ... EL RESTO DE TU CÓDIGO (SECCIONES) SIGUE IGUAL ... */}
-
+        {/* === SECCIÓN NEGRA RE-DISEÑADA === */}
         <section className="seccion-negra">
           <div className="contenedor-centro">
-            {/* ...contenido seccion negra... */}
+            {/* BLOQUE SUPERIOR */}
             <h2 className="titulo-ju">
               Creatividad colectiva y producción a medida
             </h2>
-            {/* ...etc... */}
+            <p className="subtitulo-ju">
+              En <strong>JU</strong> convertimos ideas en experiencias visuales
+              que funcionan.
+            </p>
+
+            {/* ICONOS EXACTOS (SVG) */}
+            <div className="iconos-row">
+              {/* Icono 1: Clipboard */}
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+              </svg>
+
+              {/* Icono 2: Cámara */}
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
+              </svg>
+
+              {/* Icono 3: Cerebro */}
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" />
+                <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" />
+              </svg>
+            </div>
+
+            {/* BLOQUE INFERIOR */}
+            <h2 className="titulo-ju">
+              Diseñamos y producimos contenido con equipos a medida
+            </h2>
+            <p className="subtitulo-ju">
+              Sin moldes, límites ni manuales, construyendo cada proyecto en
+              conjunto.
+            </p>
+
+            <div className="firma-final">
+              <p>‘Cause we are JU, and ju we are.</p>
+              <p>Creating together is who we are.</p>
+            </div>
           </div>
         </section>
 
-        {/* ... (Mantén aquí el resto de tu return tal cual lo tenías) ... */}
+        {/* === NUEVA SECCIÓN DE SERVICIOS (FILM / FOTO / DIGITAL) === */}
         <section className="servicios-container">
-          {/* ...contenido servicios... */}
-        </section>
+          <div className="servicios-grid">
+            {servicios.map((servicio) => (
+              <Link
+                href={servicio.link}
+                key={servicio.id}
+                className="servicio-item"
+              >
+                {/* Contenedor de Imagen Optimizado */}
+                <div className="servicio-img-wrapper">
+                  <Image
+                    src={servicio.img}
+                    alt={servicio.titulo}
+                    fill // Llena el contenedor padre
+                    sizes="(max-width: 768px) 100vw, 33vw" // Optimización de carga según pantalla
+                    style={{ objectFit: "cover" }} // Recorte perfecto
+                    className="servicio-next-image"
+                  />
+                </div>
 
+                {/* Texto y Enlace */}
+                <div className="servicio-info">
+                  <h3>{servicio.titulo}</h3>
+                  <span className="saber-mas">SABER MÁS &rarr;</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <div
+          style={{
+            padding: "20px",
+            color: "#666",
+            textAlign: "center",
+            textTransform: "uppercase",
+            letterSpacing: "2px",
+            fontSize: "0.8rem",
+          }}
+        >
+          --- OPCIÓN B: PANTALLA COMPLETA ---
+        </div>
+
+        <section className="servicios-full-container">
+          <div className="servicios-full-grid">
+            {servicios.map((servicio) => (
+              <Link
+                href={servicio.link}
+                key={servicio.id + "-full"}
+                className="servicio-item-full"
+              >
+                {/* Imagen sin bordes redondeados y ocupando todo el ancho */}
+                <div className="servicio-img-full-wrapper">
+                  <Image
+                    src={servicio.img}
+                    alt={servicio.titulo}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                    className="servicio-next-image"
+                  />
+                </div>
+
+                {/* Texto abajo (igual que en proyectos) */}
+                <div className="servicio-info-full">
+                  <h3>{servicio.titulo}</h3>
+                  <span className="saber-mas">SABER MÁS &rarr;</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+        {/* ============================================================ */}
+
+        {/* === GALERÍA DE PROYECTOS === */}
         <section className="seccion-proyectos">
-          {/* ...contenido proyectos... */}
+          <div className="header-proyectos">
+            <h2>PROYECTOS DESTACADOS</h2>
+          </div>
+          <div className="grid-proyectos">
+            {projects.map((proj, i) => (
+              <ProjectItem
+                key={i}
+                title={proj.title}
+                subtitle={proj.subtitle}
+                image={proj.img}
+                isLarge={proj.large}
+              />
+            ))}
+          </div>
         </section>
 
+        {/* === FOOTER === */}
         <footer className="footer-final">
           <div className="contenido-footer">
             <p>&copy; 2026 JUWEARE. TODOS LOS DERECHOS RESERVADOS.</p>
@@ -238,6 +385,7 @@ export default function Home() {
         </footer>
       </div>
 
+      {/* === BOTÓN VOLVER ARRIBA === */}
       <button
         className={`btn-top ${showScrollTop ? "show" : ""}`}
         onClick={scrollToTop}
