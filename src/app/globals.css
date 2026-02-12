@@ -547,12 +547,18 @@ body.loaded .site-wrapper {
 .servicio-img-full-wrapper {
   width: 100%;
   position: relative;
-  /* Aspect ratio panorámico, o puedes usar 'height: 30vw' si quieres altura fija */
   aspect-ratio: 16 / 9;
   background-color: #1a1a1a;
-  /* IMPORTANTE: Sin border-radius para que se vea como en Proyectos */
   border-radius: 0;
-  transition: opacity 0.3s ease;
+
+  /* ESTO ES CRUCIAL PARA EL EFECTO: */
+  overflow: hidden;
+}
+.servicio-next-image {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.servicio-item-full:hover .servicio-next-image {
+  transform: scale(1.05); /* Zoom suave al 105% */
 }
 
 /* Efecto hover: Un poco de brillo al pasar el mouse */
