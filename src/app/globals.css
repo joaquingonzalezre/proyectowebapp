@@ -95,46 +95,52 @@ body.loaded .site-wrapper {
 }
 
 /* --- CURSOR (Acompañante) --- */
-/* --- CURSOR (Acompañante) --- */
+/* --- CONFIGURACIÓN DEL CURSOR --- */
+
+/* 1. Ocultar la flecha normal de Windows SOLO cuando estamos sobre el video */
+.hero-container {
+  cursor: none; /* Esto oculta el puntero nativo para que se vea solo el tuyo */
+}
+
+/* 2. Estilo base del Cursor Personalizado */
 #custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px; /* Tamaño pequeño por defecto (puntito) */
-  height: 20px;
-  background-color: white; /* Círculo blanco normal */
-  border-radius: 50%;
-  pointer-events: none; /* CRUCIAL: Para que el click pase a través del icono */
-  z-index: 999999;
-  mix-blend-mode: difference; /* Efecto de inversión de color normal */
-  transition:
-    width 0.3s ease,
-    height 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.1s linear;
+  width: 30px;
+  height: 30px;
 
-  /* Centramos el contenido por si acaso */
+  /* IMPORTANTE: Fondo transparente siempre (eliminamos el círculo blanco) */
+  background-color: transparent;
+
+  pointer-events: none;
+  z-index: 999999;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Ajuste para que el cursor esté centrado en la punta del mouse */
-  margin-top: -10px;
-  margin-left: -10px;
-}
-
-/* --- ESTADO: SOBRE EL VIDEO (VIDEO MODE) --- */
-#custom-cursor.video-mode {
-  width: 60px; /* Crece para alojar el icono */
-  height: 60px;
-  background-color: transparent; /* El fondo blanco desaparece */
-  mix-blend-mode: normal; /* Quitamos el efecto de inversión para ver tus colores reales */
-  margin-top: -30px; /* Re-centramos porque creció */
+  /* Centrado exacto del icono */
+  margin-top: -30px;
   margin-left: -30px;
+
+  /* ESTADO POR DEFECTO: INVISIBLE */
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
+/* 3. ESTADO ACTIVO: Cuando entra al video (.video-mode) */
+#custom-cursor.video-mode {
+  /* Aquí se hace visible */
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Ajuste de la imagen interna */
 .cursor-icon-wrapper {
-  animation: fadeIn 0.3s ease;
   width: 100%;
   height: 100%;
   display: flex;
