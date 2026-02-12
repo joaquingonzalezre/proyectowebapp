@@ -97,12 +97,8 @@ body.loaded .site-wrapper {
 /* --- CURSOR (Acompañante) --- */
 /* --- CONFIGURACIÓN DEL CURSOR --- */
 
-/* 1. Ocultar la flecha normal de Windows SOLO cuando estamos sobre el video */
-.hero-container {
-  cursor: none; /* Esto oculta el puntero nativo para que se vea solo el tuyo */
-}
+/* --- CONFIGURACIÓN DEL CURSOR --- */
 
-/* 2. Estilo base del Cursor Personalizado */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -110,9 +106,10 @@ body.loaded .site-wrapper {
   width: 30px;
   height: 30px;
 
-  /* IMPORTANTE: Fondo transparente siempre (eliminamos el círculo blanco) */
+  /* Fondo transparente para que solo se vea tu icono */
   background-color: transparent;
 
+  /* Para que el clic traspase el icono y llegue al video */
   pointer-events: none;
   z-index: 999999;
 
@@ -120,26 +117,25 @@ body.loaded .site-wrapper {
   align-items: center;
   justify-content: center;
 
-  /* Centrado exacto del icono */
+  /* Centrado en la punta del mouse */
   margin-top: -30px;
   margin-left: -30px;
 
-  /* ESTADO POR DEFECTO: INVISIBLE */
+  /* ESTADO NORMAL: Totalmente invisible (sin punto blanco) */
   opacity: 0;
-  transform: scale(0.5);
+
+  /* Animación suave para que "siga" al mouse con un poco de delay elegante */
   transition:
     opacity 0.3s ease,
-    transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transform 0.15s ease-out;
 }
 
-/* 3. ESTADO ACTIVO: Cuando entra al video (.video-mode) */
+/* ESTADO ACTIVO: Solo cuando entra al video se hace visible */
 #custom-cursor.video-mode {
-  /* Aquí se hace visible */
   opacity: 1;
   transform: scale(1);
 }
 
-/* Ajuste de la imagen interna */
 .cursor-icon-wrapper {
   width: 100%;
   height: 100%;
@@ -147,7 +143,6 @@ body.loaded .site-wrapper {
   align-items: center;
   justify-content: center;
 }
-
 /* Animación suave al aparecer el icono */
 @keyframes fadeIn {
   from {
