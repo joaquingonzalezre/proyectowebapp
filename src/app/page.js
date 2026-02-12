@@ -179,23 +179,71 @@ export default function Home() {
           <div className="fade-bottom"></div>
         </section>
 
-        {/* === SECCIÓN NEGRA (TEXTO) === */}
+        {/* === SECCIÓN NEGRA RE-DISEÑADA === */}
         <section className="seccion-negra">
           <div className="contenedor-centro">
-            <h2>Creatividad colectiva y producción a medida</h2>
-
+            {/* BLOQUE SUPERIOR */}
+            <h2 className="titulo-ju">
+              Creatividad colectiva y producción a medida
+            </h2>
             <p className="subtitulo-ju">
               En <strong>JU</strong> convertimos ideas en experiencias visuales
               que funcionan.
             </p>
 
-            <div className="iconos-container">
-              <span>📄</span> <span>📷</span> <span>🧠</span>
+            {/* ICONOS EXACTOS (SVG) */}
+            <div className="iconos-row">
+              {/* Icono 1: Clipboard */}
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+              </svg>
+
+              {/* Icono 2: Cámara */}
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
+              </svg>
+
+              {/* Icono 3: Cerebro */}
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a855f7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" />
+                <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" />
+              </svg>
             </div>
 
-            <h3>Diseñamos y producimos contenido con equipos a medida</h3>
-
-            <p className="texto-descripcion">
+            {/* BLOQUE INFERIOR */}
+            <h2 className="titulo-ju">
+              Diseñamos y producimos contenido con equipos a medida
+            </h2>
+            <p className="subtitulo-ju">
               Sin moldes, límites ni manuales, construyendo cada proyecto en
               conjunto.
             </p>

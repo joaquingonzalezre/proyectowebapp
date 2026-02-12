@@ -171,81 +171,74 @@ body.loaded .site-wrapper {
 }
 
 /* --- SECCIÓN NEGRA (ESTRUCTURA CENTRADA) --- */
+/* --- SECCIÓN NEGRA (TEXTO) --- */
 .seccion-negra {
   background-color: black;
-  min-height: 150vh;
+  /* Reducimos la altura mínima para que no se sienta tan vacío */
+  min-height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 45vh;
-
-  padding-bottom: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-
+  align-items: center; /* Centrado vertical perfecto */
+  padding: 100px 20px;
   text-align: center;
 }
-.video-escudo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Mayor que el video (1), pero menor que el texto */
-}
+
 .contenedor-centro {
-  max-width: 900px;
+  max-width: 800px; /* Hacemos el ancho más angosto para que el texto baje de línea igual que el original */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  /* Gap reducido: el espacio entre elementos es menor */
+  gap: 25px;
 }
 
-.contenedor-centro h2 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+/* Títulos (Ajustados al diseño original) */
+.titulo-ju {
+  /* Tamaño más moderado, no gigante */
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: white;
-  font-weight: 500;
+  font-weight: 500; /* Letra "Medium", no extra bold */
   line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.5px; /* Un toque pegaditas para elegancia */
 }
 
+/* Subtítulos (Gris y tamaño medio) */
 .subtitulo-ju {
-  font-size: 1.2rem;
-  color: #888;
-  letter-spacing: 0.5px;
+  font-size: 1.1rem; /* Aprox 17-18px */
+  color: #666; /* Gris oscuro, no tan claro */
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 650px; /* Para que no se estire demasiado */
 }
+
 .subtitulo-ju strong {
   color: white;
-  font-weight: 800;
+  font-weight: 700;
 }
 
-.iconos-container {
-  font-size: 2.2rem;
+/* Iconos (Fila horizontal) */
+.iconos-row {
   display: flex;
-  gap: 40px;
-  margin: 20px 0;
-  filter: hue-rotate(240deg) brightness(1.2);
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px; /* Mucha separación entre iconos, como en la foto */
+  margin: 30px 0; /* Espacio arriba y abajo de los iconos */
+  opacity: 0.9;
 }
 
-.contenedor-centro h3 {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: white;
-  font-weight: 500;
-}
-
-.texto-descripcion {
-  font-size: 1.1rem;
-  color: #666;
-  max-width: 600px;
-}
-
+/* Firma final (Estilo itálico sutil) */
 .firma-final {
-  margin-top: 40px;
+  margin-top: 30px;
+  opacity: 0.7;
 }
+
 .firma-final p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.6;
-  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  /* Asumimos que la fuente original es una sans-serif limpia */
+  font-style: normal;
 }
 
 /* --- GALERÍA DE PROYECTOS --- */
