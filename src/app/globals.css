@@ -250,7 +250,7 @@ body.loaded .site-wrapper {
 
 /* --- GALERÍA DE PROYECTOS --- */
 .seccion-proyectos {
-  background-color: white;
+  background-color: black;
   width: 100%;
   min-height: 100vh;
   padding-bottom: 0;
@@ -288,10 +288,10 @@ body.loaded .site-wrapper {
   width: 100%;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
-  background-color: #f0f0f0;
+  background-color: black;
 }
 .proyecto-item {
-  background-color: white;
+  background-color: black;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -307,7 +307,7 @@ body.loaded .site-wrapper {
   height: 22vw;
   overflow: hidden;
   position: relative;
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
 }
 /* Forzamos a que los proyectos grandes respeten la misma altura exacta */
 .proyecto-item.grande .marco-imagen {
@@ -327,21 +327,21 @@ body.loaded .site-wrapper {
 
 .info-proyecto {
   padding: 20px 25px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #222;
   min-height: 110px; /* Asegura que la base sea igual si el texto varía */
   display: flex;
   flex-direction: column;
 }
 .info-proyecto h3 {
   font-size: 1.2rem;
-  color: #333;
+  color: white;
   text-transform: uppercase;
   font-weight: 800;
   margin-bottom: 5px;
 }
 .info-proyecto p {
   font-size: 0.9rem;
-  color: #777;
+  color: #999;
   line-height: 1.4;
 }
 
