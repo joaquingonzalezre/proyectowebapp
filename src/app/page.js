@@ -18,7 +18,7 @@ const projects = [
   {
     title: "BANCO CENTRAL",
     subtitle: "Lanzamiento nueva moneda<br>2025",
-    img: "/bancocentral2.png",
+    img: "/bancocentral.png",
     large: true,
   },
   {
@@ -65,21 +65,21 @@ const servicios = [
     id: "film",
     titulo: "Film",
     // Recuerda subir una foto llamada 'film.jpg' a tu carpeta public
-    img: "/film.jpg",
+    img: "/film.webp",
     link: "/film",
   },
   {
     id: "foto",
     titulo: "Foto",
     // Recuerda subir una foto llamada 'foto.jpg' a tu carpeta public
-    img: "/fotoo.jpg",
+    img: "/foto.webp",
     link: "/foto",
   },
   {
     id: "digital",
     titulo: "Contenido Digital",
     // Recuerda subir una foto llamada 'digital.jpg' a tu carpeta public
-    img: "/digitall.jpg",
+    img: "/digital.webp",
     link: "/digital",
   },
 ];
