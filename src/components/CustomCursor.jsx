@@ -1,49 +1,50 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import Image from "next/image"; // Importamos el componente de imagen
 
 export default function CustomCursor({ isVideoHovered, isMuted }) {
   const cursorRef = useRef(null);
-  const mouse = useRef({ x: 0, y: 0 });
-  const cursor = useRef({ x: 0, y: 0 });
-
-  // 1. NUEVO: Estado para saber si el usuario ya movió el mouse
-  const [hasMoved, setHasMoved] = useState(false);
 
   useEffect(() => {
-    const onMouseMove = (e) => {
-      // 2. Al mover el mouse, activamos la bandera (React es inteligente y solo renderiza si cambia)
-      setHasMoved(true);
-      mouse.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener("mousemove", onMouseMove);
-
-    const animate = () => {
-      cursor.current.x += (mouse.current.x - cursor.current.x) * 0.15;
-      cursor.current.y += (mouse.current.y - cursor.current.y) * 0.15;
+    // Lógica básica para que el cursor siga al mouse
+    const moveCursor = (e) => {
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${cursor.current.x}px, ${cursor.current.y}px, 0) translate(-50%, -50%)`;
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
-      requestAnimationFrame(animate);
     };
-    animate();
-    return () => window.removeEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", moveCursor);
+    return () => window.removeEventListener("mousemove", moveCursor);
   }, []);
-
-  // 3. LÓGICA FINAL: Solo mostrar si está sobre el video Y el mouse ya se movió
-  const shouldShow = isVideoHovered && hasMoved;
 
   return (
     <div
       id="custom-cursor"
       ref={cursorRef}
-      style={{ opacity: shouldShow ? 1 : 0 }} // Usamos la nueva variable combinada
+      // Si estamos sobre el video, añadimos la clase 'video-mode'
+      className={isVideoHovered ? "video-mode" : ""}
     >
-      <div id="icon-mute" style={{ display: isMuted ? "block" : "none" }}>
-        🔇
-      </div>
-      <div id="icon-on" style={{ display: !isMuted ? "block" : "none" }}>
-        🔊
-      </div>
+      {/* LÓGICA DE ICONOS: Solo se muestran si estamos sobre el video */}
+      {isVideoHovered && (
+        <div className="cursor-icon-wrapper">
+          {isMuted ? (
+            <Image
+              src="/mute.webp" // Tu imagen de silencio
+              alt="Mute"
+              width={50} // Tamaño del icono
+              height={50}
+              priority
+            />
+          ) : (
+            <Image
+              src="/unmute.webp" // Tu imagen de sonido
+              alt="Unmute"
+              width={50}
+              height={50}
+              priority
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }
