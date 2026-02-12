@@ -123,7 +123,14 @@ export default function Home() {
           onMouseLeave={() => setIsVideoHovered(false)}
           onClick={toggleMute}
         >
-          <video ref={videoRef} loop muted playsInline className="video-bg">
+          <video
+            ref={videoRef}
+            loop
+            muted
+            playsInline
+            disablePictureInPicture
+            className="video-bg"
+          >
             <source src="/U.mp4" type="video/mp4" />
           </video>
           <div className="content">
