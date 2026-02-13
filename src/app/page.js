@@ -60,11 +60,11 @@ const projects = [
 ];
 
 const servicios = [
-  { id: "film", titulo: "Film", img: "/film.webp", link: "/film" },
-  { id: "foto", titulo: "Foto", img: "/fotoservicio.webp", link: "/foto" },
+  { id: "film", titulo: "FILM", img: "/film.webp", link: "/film" },
+  { id: "foto", titulo: "FOTO", img: "/fotoservicio.webp", link: "/foto" },
   {
     id: "digital",
-    titulo: "Contenido Digital",
+    titulo: "CONTENIDO DIGITAL",
     img: "/digitalservicio.webp",
     link: "/digital",
   },
@@ -309,55 +309,11 @@ export default function Home() {
                 {/* Texto y Enlace */}
                 <div className="servicio-info">
                   <h3>{servicio.titulo}</h3>
-                  <span className="saber-mas">SABER MÁS &rarr;</span>
                 </div>
               </Link>
             ))}
           </div>
         </section>
-        <div
-          style={{
-            padding: "20px",
-            color: "#666",
-            textAlign: "center",
-            textTransform: "uppercase",
-            letterSpacing: "2px",
-            fontSize: "0.8rem",
-          }}
-        >
-          --- OPCIÓN B: PANTALLA COMPLETA ---
-        </div>
-
-        <section className="servicios-full-container">
-          <div className="servicios-full-grid">
-            {servicios.map((servicio) => (
-              <Link
-                href={servicio.link}
-                key={servicio.id + "-full"}
-                className="servicio-item-full"
-              >
-                {/* Imagen sin bordes redondeados y ocupando todo el ancho */}
-                <div className="servicio-img-full-wrapper">
-                  <Image
-                    src={servicio.img}
-                    alt={servicio.titulo}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    style={{ objectFit: "cover" }}
-                    className="servicio-next-image"
-                  />
-                </div>
-
-                {/* Texto abajo (igual que en proyectos) */}
-                <div className="servicio-info-full">
-                  <h3>{servicio.titulo}</h3>
-                  <span className="saber-mas">SABER MÁS &rarr;</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-        {/* ============================================================ */}
 
         {/* === GALERÍA DE PROYECTOS === */}
         <section className="seccion-proyectos">
