@@ -28,13 +28,11 @@ body {
   -webkit-user-select: none;
   cursor: default;
 }
-
-/* Bloqueo de scroll durante carga */
 body.loading {
   overflow: hidden !important;
 }
 
-/* --- PRELOADER (PANTALLA DE CARGA) --- */
+/* --- PRELOADER --- */
 .preloader {
   position: fixed;
   top: 0;
@@ -49,7 +47,6 @@ body.loading {
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
-
 .loader-logo-container {
   width: 450px;
   aspect-ratio: 4 / 1;
@@ -60,14 +57,10 @@ body.loading {
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-
-  /* CORRECCIÓN DE ERROR: Definimos ambas para compatibilidad */
   -webkit-mask-position: center;
   mask-position: center;
-
   background-color: rgba(255, 255, 255, 0.15);
 }
-
 .logo-fill-bar {
   position: absolute;
   top: 0;
@@ -77,13 +70,12 @@ body.loading {
   background-color: white;
   transition: width 0.1s linear;
 }
-
 body.loaded .preloader {
   opacity: 0;
   pointer-events: none;
 }
 
-/* --- WRAPPER PRINCIPAL (EFECTO APERTURA) --- */
+/* --- WRAPPER --- */
 .site-wrapper {
   width: 100%;
   clip-path: circle(0% at 50% 50%);
@@ -94,48 +86,30 @@ body.loaded .site-wrapper {
   clip-path: circle(150% at 50% 50%);
 }
 
-/* --- CURSOR (Acompañante) --- */
-/* --- CONFIGURACIÓN DEL CURSOR --- */
-
-/* --- CONFIGURACIÓN DEL CURSOR --- */
-
+/* --- CURSOR --- */
 #custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
   width: 30px;
   height: 30px;
-
-  /* Fondo transparente para que solo se vea tu icono */
   background-color: transparent;
-
-  /* Para que el clic traspase el icono y llegue al video */
   pointer-events: none;
   z-index: 999999;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Centrado en la punta del mouse */
   margin-top: -30px;
   margin-left: -30px;
-
-  /* ESTADO NORMAL: Totalmente invisible (sin punto blanco) */
   opacity: 0;
-
-  /* Animación suave para que "siga" al mouse con un poco de delay elegante */
   transition:
     opacity 0.3s ease,
     transform 0.15s ease-out;
 }
-
-/* ESTADO ACTIVO: Solo cuando entra al video se hace visible */
 #custom-cursor.video-mode {
   opacity: 1;
   transform: scale(1);
 }
-
 .cursor-icon-wrapper {
   width: 100%;
   height: 100%;
@@ -143,7 +117,6 @@ body.loaded .site-wrapper {
   align-items: center;
   justify-content: center;
 }
-/* Animación suave al aparecer el icono */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -160,7 +133,7 @@ body.loaded .site-wrapper {
   color: black;
 }
 
-/* --- SECCIONES --- */
+/* --- HERO --- */
 .hero-container {
   height: 100vh;
   height: 100dvh;
@@ -169,50 +142,6 @@ body.loaded .site-wrapper {
   overflow: hidden;
   align-items: center;
   justify-content: center;
-}
-/* --- BOTÓN DE SONIDO DEL HERO --- */
-.btn-sonido-hero {
-  position: absolute;
-  bottom: 40px; /* Ajusta la distancia desde abajo */
-  right: 40px; /* Ajusta la distancia desde la derecha */
-  z-index: 25; /* Debe ser mayor que el escudo (2) y el video (1) para que funcione el clic */
-
-  /* Quitamos los estilos feos de botón por defecto */
-  background: none;
-  border: none;
-  padding: 10px; /* Un poco de área extra para que sea fácil hacer clic */
-  cursor: pointer;
-
-  /* Efecto suave al pasar el mouse */
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-  opacity: 0.8; /* Un poco transparente cuando no se usa */
-}
-
-.btn-sonido-hero:hover {
-  transform: scale(1.1); /* Crece un poquito */
-  opacity: 1; /* Se pone totalmente visible */
-}
-
-/* Aseguramos que la imagen dentro del botón se comporte bien */
-.btn-sonido-hero img {
-  display: block; /* Elimina espacios fantasma debajo de la imagen */
-}
-
-/* --- RESPONSIVE (Móvil) --- */
-@media (max-width: 768px) {
-  .btn-sonido-hero {
-    bottom: 20px;
-    right: 20px;
-  }
-  /* Si los iconos se ven muy grandes en celular, puedes reducir el tamaño aquí: */
-  /*
-  .btn-sonido-hero img {
-     width: 24px;
-     height: 24px;
-  }
-  */
 }
 .video-bg {
   position: absolute;
@@ -255,78 +184,106 @@ body.loaded .site-wrapper {
   pointer-events: none;
 }
 
-/* --- SECCIÓN NEGRA (ESTRUCTURA CENTRADA) --- */
-/* --- SECCIÓN NEGRA (TEXTO) --- */
+/* --- SECCIÓN NEGRA --- */
 .seccion-negra {
   background-color: black;
-  /* Reducimos la altura mínima para que no se sienta tan vacío */
   min-height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centrado vertical perfecto */
+  align-items: center;
   padding: 100px 20px;
   text-align: center;
 }
-
 .contenedor-centro {
-  max-width: 800px; /* Hacemos el ancho más angosto para que el texto baje de línea igual que el original */
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Gap reducido: el espacio entre elementos es menor */
   gap: 25px;
 }
-
-/* Títulos (Ajustados al diseño original) */
 .titulo-ju {
-  /* Tamaño más moderado, no gigante */
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: white;
-  font-weight: 500; /* Letra "Medium", no extra bold */
+  font-weight: 500;
   line-height: 1.2;
   margin: 0;
-  letter-spacing: -0.5px; /* Un toque pegaditas para elegancia */
+  letter-spacing: -0.5px;
 }
-
-/* Subtítulos (Gris y tamaño medio) */
 .subtitulo-ju {
-  font-size: 1.1rem; /* Aprox 17-18px */
-  color: #d4d4d4; /* Gris oscuro, no tan claro */
+  font-size: 1.1rem;
+  color: #d4d4d4;
   font-weight: 400;
   line-height: 1.5;
-  max-width: 650px; /* Para que no se estire demasiado */
+  max-width: 650px;
 }
-
 .subtitulo-ju strong {
   color: white;
   font-weight: 700;
 }
-
-/* Iconos (Fila horizontal) */
 .iconos-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 80px; /* Mucha separación entre iconos, como en la foto */
-  margin: 30px 0; /* Espacio arriba y abajo de los iconos */
+  gap: 80px;
+  margin: 30px 0;
   opacity: 0.9;
 }
-
-/* Firma final (Estilo itálico sutil) */
 .firma-final {
   margin-top: 30px;
   opacity: 0.7;
 }
-
 .firma-final p {
   font-size: 0.9rem;
   color: #d4d4d4;
   line-height: 1.5;
-  /* Asumimos que la fuente original es una sans-serif limpia */
   font-style: normal;
 }
 
-/* --- GALERÍA DE PROYECTOS --- */
+/* --- SERVICIOS --- */
+.servicios-container {
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 0 20px 100px 20px;
+  position: relative;
+  z-index: 15;
+}
+.servicios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.servicio-item {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+.servicio-item:hover {
+  transform: translateY(-8px);
+}
+.servicio-img-wrapper {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #1a1a1a;
+}
+.servicio-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+/* --- PROYECTOS --- */
 .seccion-proyectos {
   background-color: black;
   width: 100%;
@@ -336,22 +293,15 @@ body.loaded .site-wrapper {
   z-index: 20;
   margin-top: -1px;
 }
-
 .header-proyectos {
   background-color: black;
   width: 100%;
-
-  /* Altura y espacios */
   padding-top: 100px;
   padding-bottom: 80px;
-  padding-left: 0px; /* Perfecto, déjalo en 0 */
-
-  /* --- AQUÍ ESTÁ EL TRUCO --- */
   display: flex;
-  align-items: flex-end; /* Alinea verticalmente al fondo */
-  justify-content: center; /* <--- ESTA ES LA LÍNEA QUE TE FALTA para ke este centada */
+  align-items: flex-end;
+  justify-content: center;
 }
-
 .header-proyectos h2 {
   color: white;
   font-size: clamp(1.5rem, 4vw, 1.5rem);
@@ -368,6 +318,7 @@ body.loaded .site-wrapper {
   gap: 0;
   background-color: black;
 }
+/* Estilos usados en ProjectItem.js */
 .proyecto-item {
   background-color: black;
   display: flex;
@@ -377,36 +328,31 @@ body.loaded .site-wrapper {
 .proyecto-item.grande {
   grid-column: span 2;
 }
-
-/* --- LÓGICA DE ALTURAS UNIFICADAS (X) --- */
 .marco-imagen {
   width: 100%;
-  /* Eliminamos aspect-ratio y usamos una altura fija basada en el ancho de pantalla */
   height: 22vw;
   overflow: hidden;
   position: relative;
   background-color: #1a1a1a;
 }
-/* Forzamos a que los proyectos grandes respeten la misma altura exacta */
 .proyecto-item.grande .marco-imagen {
   height: 22vw;
-  aspect-ratio: auto; /* Cancelamos el ratio anterior */
+  aspect-ratio: auto;
 }
 .marco-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Esto es vital para que la imagen no se deforme al estirarse */
+  object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
 }
 .marco-imagen:hover img {
   transform: scale(1.05);
 }
-
 .info-proyecto {
   padding: 20px 25px;
   border-top: 1px solid #222;
-  min-height: 110px; /* Asegura que la base sea igual si el texto varía */
+  min-height: 110px;
   display: flex;
   flex-direction: column;
 }
@@ -423,7 +369,77 @@ body.loaded .site-wrapper {
   line-height: 1.4;
 }
 
-/* --- FOOTER FINAL --- */
+/* --- SECCIÓN MARCAS (NUEVO) --- */
+.marcas-container {
+  background-color: black;
+  width: 100%;
+  padding: 80px 0;
+  position: relative;
+  z-index: 25;
+  border-top: 1px solid #1a1a1a;
+  user-select: none;
+}
+.marcas-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+.marcas-header h2 {
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.marcas-slider {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.marcas-slider::-webkit-scrollbar {
+  display: none;
+}
+.marcas-slider.active {
+  cursor: grabbing;
+}
+.marcas-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+  padding-left: 0;
+}
+.marca-item {
+  flex-shrink: 0;
+  width: 140px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.marca-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.marca-logo {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.7;
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+.marcas-slider:hover .marca-logo {
+  opacity: 0.9;
+}
+
+/* --- FOOTER --- */
 .footer-final {
   background-color: black;
   color: #666;
@@ -442,48 +458,7 @@ body.loaded .site-wrapper {
   text-align: left;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 1024px) {
-  .grid-proyectos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .proyecto-item.grande {
-    grid-column: span 1;
-  }
-  .marco-imagen,
-  .proyecto-item.grande .marco-imagen {
-    aspect-ratio: 1 / 1;
-  }
-}
-@media (max-width: 600px) {
-  .grid-proyectos {
-    grid-template-columns: 1fr;
-  }
-  .proyecto-item.grande {
-    grid-column: span 1;
-  }
-  .logo-hero {
-    width: 90%;
-    top: -15vh;
-  }
-  .marco-imagen,
-  .proyecto-item.grande .marco-imagen {
-    aspect-ratio: 4 / 3;
-  }
-  .footer-final {
-    padding: 30px 20px;
-    text-align: center;
-  }
-  .contenido-footer p {
-    text-align: center;
-  }
-  .loader-logo-container {
-    width: 85vw;
-    max-width: 350px;
-  }
-}
-
-/* --- BOTÓN VOLVER ARRIBA --- */
+/* --- BOTÓN TOP --- */
 .btn-top {
   position: fixed;
   bottom: 40px;
@@ -514,167 +489,60 @@ body.loaded .site-wrapper {
   transform: rotate(-45deg);
   margin-top: 5px;
 }
-/* ========================================= */
-/* --- NUEVA SECCIÓN: SERVICIOS (3 COLS) --- */
-/* ========================================= */
 
-.servicios-container {
-  background-color: black;
-  color: white;
-  width: 100%;
-  padding: 0 20px 100px 20px; /* Padding ajustado para dar aire abajo */
-  position: relative;
-  z-index: 15; /* Entre la sección negra y los proyectos */
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .grid-proyectos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .proyecto-item.grande {
+    grid-column: span 1;
+  }
+  .marco-imagen,
+  .proyecto-item.grande .marco-imagen {
+    aspect-ratio: 1 / 1;
+  }
 }
-
-.servicios-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 Columnas iguales */
-  gap: 20px;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.servicio-item {
-  text-decoration: none;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.4s ease;
-  cursor: pointer;
-}
-
-.servicio-item:hover {
-  transform: translateY(-8px); /* Efecto flotante al pasar el mouse */
-}
-
-/* IMPORTANTE: Wrapper necesario para que 'fill' de Next.js funcione */
-.servicio-img-wrapper {
-  width: 100%;
-  position: relative;
-  aspect-ratio: 16 / 9; /* Formato rectangular panorámico */
-  border-radius: 12px; /* Bordes redondeados modernos */
-  overflow: hidden;
-  margin-bottom: 15px;
-  background-color: #1a1a1a; /* Fondo gris mientras carga la foto */
-}
-
-.servicio-info h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-  text-transform: capitalize; /* O 'uppercase' si prefieres mayúsculas */
-  letter-spacing: 0.5px;
-}
-
-.saber-mas {
-  font-size: 0.75rem;
-  color: #a855f7;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.servicio-item:hover .saber-mas {
-  color: #a855f7; /* Color morado suave al hacer hover (puedes cambiarlo a blanco) */
-}
-
-/* --- RESPONSIVE ESPECÍFICO PARA ESTA SECCIÓN --- */
 @media (max-width: 768px) {
   .servicios-grid {
-    grid-template-columns: 1fr; /* 1 sola columna en celular */
+    grid-template-columns: 1fr;
     gap: 40px;
   }
-
   .servicio-img-wrapper {
-    aspect-ratio: 3 / 2; /* Un poco más cuadrado en móviles para que se vea mejor */
+    aspect-ratio: 3 / 2;
+  }
+  .marcas-track {
+    gap: 40px;
+  }
+  .marca-item {
+    width: 100px;
+    height: 60px;
   }
 }
-/* ========================================= */
-/* --- VERSIÓN 2: SERVICIOS FULL WIDTH --- */
-/* ========================================= */
-
-.servicios-full-container {
-  background-color: black;
-  width: 100%;
-  padding: 0; /* Sin padding para que toque los bordes */
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 15;
-}
-
-.servicios-full-grid {
-  display: grid;
-  /* 3 columnas exactas que se reparten el 100% de la pantalla */
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0; /* CERO espacio entre fotos, estilo pared de ladrillos */
-  width: 100%;
-  margin: 0;
-}
-
-.servicio-item-full {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Wrapper de la imagen: Recto y sin bordes */
-.servicio-img-full-wrapper {
-  width: 100%;
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background-color: #1a1a1a;
-  border-radius: 0;
-
-  /* ESTO ES CRUCIAL PARA EL EFECTO: */
-  overflow: hidden;
-}
-.servicio-next-image {
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.servicio-item-full:hover .servicio-next-image {
-  transform: scale(1.05); /* Zoom suave al 105% */
-}
-
-/* Efecto hover: Un poco de brillo al pasar el mouse */
-.servicio-item-full:hover .servicio-img-full-wrapper {
-  opacity: 0.9;
-}
-
-/* Información de texto (Abajo de la foto) */
-.servicio-info-full {
-  padding: 20px;
-  background-color: black; /* Fondo negro para el texto */
-  border-right: 1px solid #1a1a1a; /* Opcional: una línea sutil separadora */
-}
-
-.servicio-info-full h3 {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-/* Reutilizamos tu clase saber-mas, pero si necesitas ajustes específicos para esta sección: */
-.servicio-info-full .saber-mas {
-  font-size: 0.75rem;
-  color: #a855f7; /* Morado */
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-/* --- RESPONSIVE (MÓVIL) --- */
-@media (max-width: 768px) {
-  .servicios-full-grid {
-    grid-template-columns: 1fr; /* En celular se ponen una debajo de otra */
+@media (max-width: 600px) {
+  .grid-proyectos {
+    grid-template-columns: 1fr;
   }
-  .servicio-info-full {
-    border-right: none;
-    border-bottom: 1px solid #1a1a1a;
+  .proyecto-item.grande {
+    grid-column: span 1;
+  }
+  .logo-hero {
+    width: 90%;
+    top: -15vh;
+  }
+  .marco-imagen,
+  .proyecto-item.grande .marco-imagen {
+    aspect-ratio: 4 / 3;
+  }
+  .footer-final {
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .contenido-footer p {
+    text-align: center;
+  }
+  .loader-logo-container {
+    width: 85vw;
+    max-width: 350px;
   }
 }
