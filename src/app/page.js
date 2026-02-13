@@ -76,7 +76,7 @@ const servicios = [
 // Asegúrate de que estos archivos PNG existan en tu carpeta /public
 const brands = [
   { id: 1, name: "Chery", img: "/cheryBrand.png" },
-  { id: 2, name: "The Clash", img: "/TheClashBrand" },
+  { id: 2, name: "The Clash", img: "/TheClashBrand.png" },
   { id: 3, name: "Teck", img: "/teckBrand.png" },
   { id: 4, name: "BMW", img: "/bmwBrand.png" },
   { id: 5, name: "CCU", img: "/ccuBrand.png" },
@@ -85,7 +85,7 @@ const brands = [
   { id: 8, name: "upa", img: "/upaBrand.png" },
   { id: 9, name: "Starbucks", img: "/StarbucksBrand.png" },
   { id: 10, name: "TGA", img: "/tgaBrand.png" },
-  { id: 11, name: "Bupa", img: "/bupa.png" },
+  { id: 11, name: "Bupa", img: "/bupaBrand.png" },
 ];
 
 export default function Home() {

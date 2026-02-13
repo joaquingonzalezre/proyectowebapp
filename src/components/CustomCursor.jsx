@@ -28,7 +28,7 @@ export default function CustomCursor({ isVideoHovered, isMuted }) {
         <div className="cursor-icon-wrapper">
           {isMuted ? (
             <Image
-              src="/mute.webp" // Tu imagen de silencio
+              src="/unmute.webp" // Tu imagen de silencio
               alt="Mute"
               width={50} // Tamaño del icono
               height={50}
@@ -36,7 +36,7 @@ export default function CustomCursor({ isVideoHovered, isMuted }) {
             />
           ) : (
             <Image
-              src="/unmute.webp" // Tu imagen de sonido
+              src="/mute.webp" // Tu imagen de sonido
               alt="Unmute"
               width={50}
               height={50}
