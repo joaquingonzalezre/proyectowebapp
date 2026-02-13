@@ -75,14 +75,17 @@ const servicios = [
 
 // Asegúrate de que estos archivos PNG existan en tu carpeta /public
 const brands = [
-  { id: 1, name: "Starbucks", img: "/Starbucksbrand.png" },
-  { id: 2, name: "Chery", img: "/chery.png" },
-  { id: 3, name: "Teck", img: "/teck.png" },
-  { id: 4, name: "BMW", img: "/bmw.png" },
-  { id: 5, name: "CCU", img: "/ccu.png" },
-  { id: 6, name: "CNN Chile", img: "/cnn.png" },
-  { id: 7, name: "Decathlon", img: "/decathlon.png" },
-  { id: 8, name: "Bupa", img: "/bupa.png" },
+  { id: 1, name: "Starbucks", img: "/StarbucksBrand.png" },
+  { id: 2, name: "Chery", img: "/cheryBrand.png" },
+  { id: 3, name: "Teck", img: "/teckBrand.png" },
+  { id: 4, name: "BMW", img: "/bmwBrand.png" },
+  { id: 5, name: "CCU", img: "/ccuBrand.png" },
+  { id: 6, name: "CNN Chile", img: "/cnnBrand.png" },
+  { id: 7, name: "Decathlon", img: "/decathlonBrand.png" },
+  { id: 8, name: "Bupa", img: "/bupa.Brandpng" },
+  { id: 9, name: "Bupa", img: "/bupa.png" },
+  { id: 10, name: "Bupa", img: "/bupa.png" },
+  { id: 11, name: "Bupa", img: "/bupa.png" },
 ];
 
 export default function Home() {
