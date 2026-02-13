@@ -75,17 +75,17 @@ const servicios = [
 
 // Asegúrate de que estos archivos PNG existan en tu carpeta /public
 const brands = [
-  { id: 1, name: "Chery", img: "/cheryBrand.png" },
-  { id: 2, name: "The Clash", img: "/TheClashBrand.png" },
-  { id: 3, name: "Teck", img: "/teckBrand.png" },
-  { id: 4, name: "BMW", img: "/bmwBrand.png" },
-  { id: 5, name: "CCU", img: "/ccuBrand.png" },
-  { id: 6, name: "CNN Chile", img: "/cnnBrand.png" },
-  { id: 7, name: "Decathlon", img: "/decathlonBrand.png" },
-  { id: 8, name: "upa", img: "/upaBrand.png" },
-  { id: 9, name: "Starbucks", img: "/StarbucksBrand.png" },
-  { id: 10, name: "TGA", img: "/tgaBrand.png" },
-  { id: 11, name: "Bupa", img: "/bupaBrand.png" },
+  { id: 1, name: "Starbucks", img: "/StarbucksBrand.png" },
+  { id: 2, name: "TGA", img: "/tgaBrand.png" },
+  { id: 3, name: "Bupa", img: "/bupaBrand.png" },
+  { id: 4, name: "Chery", img: "/cheryBrand.png" },
+  { id: 5, name: "The Clash", img: "/TheClashBrand.png" },
+  { id: 6, name: "Teck", img: "/teckBrand.png" },
+  { id: 7, name: "BMW", img: "/bmwBrand.png" },
+  { id: 8, name: "CCU", img: "/ccuBrand.png" },
+  { id: 9, name: "CNN Chile", img: "/cnnBrand.png" },
+  { id: 10, name: "Decathlon", img: "/decathlonBrand.png" },
+  { id: 11, name: "upa", img: "/upaBrand.png" },
 ];
 
 export default function Home() {
