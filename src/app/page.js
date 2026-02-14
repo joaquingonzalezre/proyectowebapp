@@ -75,8 +75,8 @@ const servicios = [
 
 // Asegúrate de que estos archivos PNG existan en tu carpeta /public
 const brands = [
-  { id: 1, name: "Starbucks", img: "/StarbucksBrand.png" },
-  { id: 2, name: "TGA", img: "/tgaBrand.png" },
+  { id: 1, name: "Starbucks", img: "/starbucksbrand.png" },
+  { id: 2, name: "TGA", img: "/tgabrand.png" },
   { id: 3, name: "Bupa", img: "/bupaBrand.png" },
   { id: 4, name: "Chery", img: "/cheryBrand.png" },
   { id: 5, name: "The Clash", img: "/TheClashBrand.png" },
