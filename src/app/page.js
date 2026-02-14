@@ -8,7 +8,7 @@ import CustomCursor from "../components/CustomCursor";
 import ProjectItem from "../components/ProjectItem";
 
 // --- CONFIGURACIÓN ---
-const VELOCIDAD_CINTA = 0.5; // Cambia a 1.0 para más rápido, 0.2 para más lento
+const VELOCIDAD_CINTA = 1.5; // Cambia a 1.0 para más rápido, 0.2 para más lento
 
 // --- DATOS ---
 const projects = [
@@ -104,6 +104,7 @@ export default function Home() {
   const videoRef = useRef(null);
   const lenisRef = useRef(null);
   const sliderRef = useRef(null);
+  const positionRef = useRef(0);
 
   // 1. EFECTO LENIS + VIDEO OPTIMIZATION
   useEffect(() => {
@@ -153,26 +154,40 @@ export default function Home() {
     return () => lenis.destroy();
   }, [loading]);
 
-  // 2. LÓGICA DE LA CINTA TRANSPORTADORA (Auto-Scroll)
+  // 2. LÓGICA DE LA CINTA TRANSPORTADORA (Auto-Scroll) - CORREGIDO
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
     let animationId;
+
     const animate = () => {
+      // Si el usuario NO está arrastrando
       if (!isDown) {
-        slider.scrollLeft += VELOCIDAD_CINTA;
-        // Reinicio imperceptible para efecto infinito
+        // 1. Sumamos la velocidad al acumulador decimal (no directo al scroll)
+        positionRef.current += VELOCIDAD_CINTA;
+
+        // 2. Aplicamos el valor acumulado al scroll real
+        slider.scrollLeft = positionRef.current;
+
+        // 3. Reinicio imperceptible para efecto infinito
         if (slider.scrollLeft >= slider.scrollWidth / 2) {
+          positionRef.current = 0; // Reseteamos también el acumulador
           slider.scrollLeft = 0;
         }
+      } else {
+        // IMPORTANTE: Si el usuario está arrastrando, actualizamos el acumulador
+        // para que coincida con donde el usuario dejó la cinta.
+        // Así no "salta" cuando el usuario suelta el mouse.
+        positionRef.current = slider.scrollLeft;
       }
+
       animationId = requestAnimationFrame(animate);
     };
+
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [isDown]);
-
+  }, [isDown]); // Depende de isDown
   // 3. EVENTOS DE ARRASTRAR (DRAG)
   const startDragging = (e) => {
     setIsDown(true);
