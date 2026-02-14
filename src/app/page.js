@@ -379,7 +379,7 @@ export default function Home() {
                       src={brand.img}
                       alt={brand.name}
                       fill
-                      sizes="200px"
+                      sizes="350px"
                       style={{ objectFit: "contain" }}
                       className="marca-logo"
                       draggable={false}
